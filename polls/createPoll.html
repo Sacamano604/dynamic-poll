@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row" ng-controller="createPollController" >
       <div class="col-md-6 col-md-offset-3">
         <div class="page-header">
           <h1>Dynamic Poll</h1>
           <p>Create a poll and share a link with friends.</p>
         </div>  
-        <form class="form-horizontal" id="createPoll" ng-controller="createPollController" ng-submit="createPoll()">
+        <form class="form-horizontal" id="createPoll" ng-submit="createPoll()">
           <div class="form-group">
             <label for="pollname">Poll Name: </label>
             <input type="text" class="form-control" id="pollname" ng-model="pollname" placeholder="Poll Name...">

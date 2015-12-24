@@ -14,17 +14,18 @@
 			$mysqli->close();
 		break;
 
+		case 'viewPoll':
+			$id = $_GET['poll_id'];
+			$query = ("SELECT * FROM poll WHERE poll_id = '$id'");
+			$result = mysqli_query($mysqli, $query);
+			while ($row = $result->fetch_assoc()){
+				$json = array('poll_id' => $row['poll_id'], 'pollname' => $row['pollname'], 'option1' => $row['option1'], 'option2' => $row['option2'], 'option3' => $row['option3'], 'option4' => $row['option4'], 'option5' => $row['option5'], 'option1votes' => $row['option1votes'], 'option2votes' => $row['option2votes'], 'option3votes' => $row['option3votes'], 'option4votes' => $row['option4votes'], 'option5votes' => $row['option5votes']);
+			};
+			echo json_encode($json);
+			$mysqli->close();
+		break;
 	}
 
 
 
-
-
-
-
-
-
 ?>
-
-
-

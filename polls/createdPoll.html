@@ -1,0 +1,36 @@
+<div class="row" ng-controller="createdPollController">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="page-header">
+			<h1>{{ poll.pollname }}</h1>
+			<p>Copy the following link to share your poll:<p>
+			<p><strong><a href="http://localhost:8888/Git/dynamic-poll/#/created/{{ poll.poll_id }}">http://localhost:8888/Git/dynamic-poll/#/created/{{ poll.poll_id }}</a></strong></p>
+		</div>
+				<table class="table">
+					<tr class="info">
+					<th>Poll Option</th>
+					<th>Votes</th>
+					</tr>
+					<tr>
+					<td>{{ poll.option1 }}</td>
+					<td>{{ poll.option1votes }}</td>
+					</tr>
+					<tr>
+					<td>{{ poll.option2 }}</td>
+					<td>{{ poll.option2votes }}</td>
+					</tr>
+					<tr>
+					<td>{{ poll.option3 }}</td>
+					<td>{{ poll.option3votes }}</td>
+					</tr>
+					<tr>
+					<td>{{ poll.option4 }}</td>
+					<td>{{ poll.option4votes }}</td>
+					</tr>
+					<tr>
+					<td>{{ poll.option5 }}</td>
+					<td>{{ poll.option5votes }}</td>
+					</tr>
+				</table>
+	</div>
+</div>
+
