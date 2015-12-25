@@ -21,13 +21,17 @@ angular.module('dynamicPollServices', [])
 .factory('pollService', ['$http', function($http){
 	return {
 		createPoll: function(readyFormData, callback){
-			$http.post('polls/polls.php?action=createPoll', readyFormData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(callback);
+			$http.post('polls/polls.php?action=createPoll', readyFormData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(response){
+				console.log(response);
+			});
 		},
 		viewPoll: function(id, callback){
 			$http.get('polls/polls.php?action=viewPoll&poll_id=' + id).success(callback);
 		}
 	}
 }]);
+
+
 
 
 
