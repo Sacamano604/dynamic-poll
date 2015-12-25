@@ -11,6 +11,9 @@
 			$query = $mysqli->prepare('INSERT INTO poll (pollname, option1, option2, option3, option4, option5) VALUES (?, ?, ?, ?, ?, ?)');
 			$query->bind_param('ssssss', $_POST['pollname'], $_POST['option1'], $_POST['option2'], $_POST['option3'], $_POST['option4'], $_POST['option5']);
 			$query->execute();
+			$returnId = $mysqli->insert_id;
+			$json = array('poll_id' => $returnId);
+			echo json_encode($json);
 			$mysqli->close();
 		break;
 

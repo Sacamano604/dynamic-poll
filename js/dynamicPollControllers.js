@@ -9,7 +9,7 @@ dynamicPollControllers.controller('createPollController', ["$scope", "$http", "$
 		$scope.createPoll = function(){
 			var readyFormData = assembleFormDataService.populateFormData($scope.pollname, $scope.option1, $scope.option2, $scope.option3, $scope.option4, $scope.option5);
 				pollService.createPoll(readyFormData, function(){
-					$location.path('/created/' + $scope.poll_id);
+					$location.path('/created/' + poll_id);
 				});
 		};
 }]);
@@ -21,4 +21,8 @@ dynamicPollControllers.controller('createdPollController', ["$scope", "$routePar
 		});
 	}
 ]);
+
+
+
+
 
