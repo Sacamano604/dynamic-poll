@@ -8,8 +8,8 @@ dynamicPollControllers.controller('createPollController', ["$scope", "$http", "$
 	function ($scope, $http, $location, pollService, assembleFormDataService){
 		$scope.createPoll = function(){
 			var readyFormData = assembleFormDataService.populateFormData($scope.pollname, $scope.option1, $scope.option2, $scope.option3, $scope.option4, $scope.option5);
-				pollService.createPoll(readyFormData, function(){
-					$location.path('/created/');
+				pollService.createPoll(readyFormData, function(data){
+					$location.path('/created/' + data);
 				});
 		};
 }]);

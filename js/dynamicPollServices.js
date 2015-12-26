@@ -22,7 +22,7 @@ angular.module('dynamicPollServices', [])
 	return {
 		createPoll: function(readyFormData, callback){
 			$http.post('polls/polls.php?action=createPoll', readyFormData, { transformRequest: angular.identity, headers: { "Content-Type": undefined } }).success(function(response){
-				console.log(response);
+				callback(response.poll_id);
 			});
 		},
 		viewPoll: function(id, callback){
