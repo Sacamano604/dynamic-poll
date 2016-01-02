@@ -29,9 +29,9 @@
 		break;
 		
 		case 'voteonPoll':
-			// here i need to get the poll id
-			// here i need to get the column being voted on
-			$query = ("UPDATE poll set $columnName=$columnName + 1 WHERE id='$id'");
+			$id = $_GET['poll_id'];
+			$columnName = $_GET['voteOption'];
+			$query = ("UPDATE poll SET $columnName=$columnName + 1 WHERE id='$id'");
 			$result = mysqli_query($mysqli, $query);
 		break;
 	}

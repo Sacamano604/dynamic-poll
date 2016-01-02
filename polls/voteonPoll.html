@@ -5,7 +5,7 @@
 			<p>Copy the following link to share your poll and have others vote:<p>
 				<!--  Creating a new clipboard so the button functions and copies the link-->
 				<script>
-					new Clipboard('.btn');
+					new Clipboard('#clipboard');
 				</script>
 			<p>
 				<strong>http://localhost:8888/Git/dynamic-poll/#/vote/{{ poll.poll_id }}</strong>
@@ -19,23 +19,23 @@
 					</tr>
 					<tr>
 					<td>{{ poll.option1 }}</td>
-					<td><button class="btn btn-primary">Vote!</button></td>
+					<td><button class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option1votes');">Vote!</button></td>
 					</tr>
 					<tr>
 					<td>{{ poll.option2 }}</td>
-					<td><button class="btn btn-primary">Vote!</button></td>
+					<td><button class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option2votes');">Vote!</button></td>
 					</tr>
 					<tr>
 					<td>{{ poll.option3 }}</td>
-					<td><button class="btn btn-primary">Vote!</button></td>
+					<td><button class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option3votes');">Vote!</button></td>
 					</tr>
 					<tr>
 					<td>{{ poll.option4 }}</td>
-					<td><button class="btn btn-primary">Vote!</button></td>
+					<td><button class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option4votes');">Vote!</button></td>
 					</tr>
 					<tr>
 					<td>{{ poll.option5 }}</td>
-					<td><button class="btn btn-primary">Vote!</button></td>
+					<td><button class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option5votes');">Vote!</button></td>
 					</tr>
 				</table>
 	</div>

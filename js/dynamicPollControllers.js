@@ -27,7 +27,12 @@ dynamicPollControllers.controller('voteonPollController', ["$scope", "$routePara
 		pollService.viewPoll($routeParams.poll_id, function(data){
 			$scope.poll = data;
 		});
-		$scope.activateButton = function(name) { $scope.active = name; }
+		$scope.activateButton = function(name) { 
+			$scope.active = name; 
+		}
+		$scope.voteonPoll = function(id, vote){
+			console.log(id, vote);
+		};
 	}
 ]);
 
