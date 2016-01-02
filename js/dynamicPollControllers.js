@@ -9,7 +9,7 @@ dynamicPollControllers.controller('createPollController', ["$scope", "$http", "$
 		$scope.createPoll = function(){
 			var readyFormData = assembleFormDataService.populateFormData($scope.pollname, $scope.option1, $scope.option2, $scope.option3, $scope.option4, $scope.option5);
 				pollService.createPoll(readyFormData, function(data){
-					$location.path('/created/' + data);
+					$location.path('/vote/' + data);
 				});
 		};
 }]);
@@ -22,8 +22,12 @@ dynamicPollControllers.controller('createdPollController', ["$scope", "$routePar
 	}
 ]);
 
-dynamicPollControllers.controller('voteonPollController', []);
-
-
-
+dynamicPollControllers.controller('voteonPollController', ["$scope", "$routeParams", "pollService",
+	function ($scope, $routeParams, pollService) {
+		pollService.viewPoll($routeParams.poll_id, function(data){
+			$scope.poll = data;
+		});
+		$scope.activateButton = function(name) { $scope.active = name; }
+	}
+]);
 
