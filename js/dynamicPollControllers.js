@@ -22,8 +22,8 @@ dynamicPollControllers.controller('createdPollController', ["$scope", "$routePar
 	}
 ]);
 
-dynamicPollControllers.controller('voteonPollController', ["$scope", "$routeParams", "pollService",
-	function ($scope, $routeParams, pollService) {
+dynamicPollControllers.controller('voteonPollController', ["$scope", "$http", "$location", "$routeParams", "pollService",
+	function ($scope, $http, $location, $routeParams, pollService) {
 		pollService.viewPoll($routeParams.poll_id, function(data){
 			$scope.poll = data;
 		});
@@ -37,7 +37,7 @@ dynamicPollControllers.controller('voteonPollController', ["$scope", "$routePara
 			$scope.json = angular.toJson($scope.passedVote);
 			console.log($scope.json);
 			pollService.voteonPoll($routeParams.poll_id, vote, function(data){
-				console.log('success');
+				$location.path('/created/' + $routeParams.poll_id);
 			});
 		};
 	}
