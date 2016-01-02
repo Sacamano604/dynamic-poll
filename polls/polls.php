@@ -31,8 +31,10 @@
 		case 'voteonPoll':
 			$id = $_GET['poll_id'];
 			$columnName = $_GET['voteOption'];
-			$query = ("UPDATE poll SET $columnName=$columnName + 1 WHERE id='$id'");
+			$query = ("UPDATE poll SET $columnName=($columnName + 1) WHERE poll_id='$id'");
 			$result = mysqli_query($mysqli, $query);
+			echo 'DB success';
+			$mysqli->close();
 		break;
 	}
 ?>
