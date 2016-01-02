@@ -1,5 +1,4 @@
 'use strict';
-
 //Directive that makes sure any 'value' attribute assigned to an input field is bound correctly
 dynamicPollControllers.directive('input', function($parse){
 	return {
@@ -12,5 +11,3 @@ dynamicPollControllers.directive('input', function($parse){
 		}
 	};
 });
-
-

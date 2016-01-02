@@ -1,11 +1,9 @@
 'use strict';
-
 // Controller Module
 var dynamicPollControllers = angular.module('dynamicPollControllers', []);
-
 // Controller for creating a poll
-dynamicPollControllers.controller('createPollController', ["$scope", "$http", "$location", "pollService", "assembleFormDataService",
-	function ($scope, $http, $location, pollService, assembleFormDataService){
+dynamicPollControllers.controller('createPollController', ["$scope", "$location", "pollService", "assembleFormDataService",
+	function ($scope, $location, pollService, assembleFormDataService){
 		$scope.createPoll = function(){
 			var readyFormData = assembleFormDataService.populateFormData($scope.pollname, $scope.option1, $scope.option2, $scope.option3, $scope.option4, $scope.option5);
 				pollService.createPoll(readyFormData, function(data){
@@ -13,7 +11,7 @@ dynamicPollControllers.controller('createPollController', ["$scope", "$http", "$
 				});
 		};
 }]);
-
+// Viewing the created poll. Controller name should be viewPollController or something like that
 dynamicPollControllers.controller('createdPollController', ["$scope", "$routeParams", "pollService",
 	function ($scope, $routeParams, pollService) {
 		pollService.viewPoll($routeParams.poll_id, function(data){
@@ -21,9 +19,9 @@ dynamicPollControllers.controller('createdPollController', ["$scope", "$routePar
 		});
 	}
 ]);
-
-dynamicPollControllers.controller('voteonPollController', ["$scope", "$http", "$location", "$routeParams", "pollService",
-	function ($scope, $http, $location, $routeParams, pollService) {
+//vote on poll controller. Handles displaying the poll options, copying the link to share, and the posting of the vote cast
+dynamicPollControllers.controller('voteonPollController', ["$scope", "$location", "$routeParams", "pollService",
+	function ($scope, $location, $routeParams, pollService) {
 		pollService.viewPoll($routeParams.poll_id, function(data){
 			$scope.poll = data;
 		});
@@ -31,15 +29,9 @@ dynamicPollControllers.controller('voteonPollController', ["$scope", "$http", "$
 			$scope.active = name; 
 		}
 		$scope.voteonPoll = function(id, vote){
-			$scope.passedVote = [
-				{poll_id: id, voteOption: vote}
-			];
-			$scope.json = angular.toJson($scope.passedVote);
-			console.log($scope.json);
 			pollService.voteonPoll($routeParams.poll_id, vote, function(data){
 				$location.path('/created/' + $routeParams.poll_id);
 			});
 		};
 	}
 ]);
-

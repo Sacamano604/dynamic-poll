@@ -1,7 +1,6 @@
 'use strict';
-
+//Declaring the poll services module
 angular.module('dynamicPollServices', [])
-
 // Factory responsible for assembling the form data before it's passed over to the php
 .factory('assembleFormDataService', function(){
 	return {
@@ -33,12 +32,3 @@ angular.module('dynamicPollServices', [])
 		}
 	}
 }]);
-
-
-
-
-
-
-
-
-
