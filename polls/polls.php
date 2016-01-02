@@ -27,8 +27,12 @@
 			echo json_encode($json);
 			$mysqli->close();
 		break;
+		
+		case 'voteonPoll':
+			// here i need to get the poll id
+			// here i need to get the column being voted on
+			$query = ("UPDATE poll set $columnName=$columnName + 1 WHERE id='$id'");
+			$result = mysqli_query($mysqli, $query);
+		break;
 	}
-
-
-
 ?>

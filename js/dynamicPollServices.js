@@ -27,6 +27,9 @@ angular.module('dynamicPollServices', [])
 		},
 		viewPoll: function(id, callback){
 			$http.get('polls/polls.php?action=viewPoll&poll_id=' + id).success(callback);
+		},
+		voteonPoll: function(){
+			
 		}
 	}
 }]);
