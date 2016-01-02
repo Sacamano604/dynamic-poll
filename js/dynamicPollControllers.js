@@ -22,6 +22,7 @@ dynamicPollControllers.controller('createdPollController', ["$scope", "$routePar
 	}
 ]);
 
+dynamicPollControllers.controller('voteonPollController', []);
 
 
 
