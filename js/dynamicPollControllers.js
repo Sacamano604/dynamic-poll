@@ -31,7 +31,14 @@ dynamicPollControllers.controller('voteonPollController', ["$scope", "$routePara
 			$scope.active = name; 
 		}
 		$scope.voteonPoll = function(id, vote){
-			console.log(id, vote);
+			$scope.passedVote = [
+				{poll_id: id, voteOption: vote}
+			];
+			$scope.json = angular.toJson($scope.passedVote);
+			console.log($scope.json);
+			pollService.voteonPoll($routeParams.poll_id, vote, function(data){
+				console.log('success');
+			});
 		};
 	}
 ]);
