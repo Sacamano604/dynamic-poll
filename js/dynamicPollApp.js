@@ -16,6 +16,10 @@ dynamicPollApp.config(['$routeProvider',
 				when('/created/:poll_id', {
 					templateUrl: 'polls/createdPoll.html',
 					controllers: 'createdPollController'
+				}).
+				when('/vote/:poll_id'{
+					templateUrl: 'polls/voteonPoll.html',
+					controllers: 'voteonPollController'
 				});
 		}
 	]);
