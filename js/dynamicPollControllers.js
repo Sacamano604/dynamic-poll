@@ -12,13 +12,14 @@ dynamicPollControllers.controller('createPollController', ["$scope", "$location"
 		};
 }]);
 // Viewing the created poll. Controller name should be viewPollController or something like that
-dynamicPollControllers.controller('createdPollController', ["$scope", "$routeParams", "pollService",
-	function ($scope, $routeParams, pollService) {
-		pollService.viewPoll($routeParams.poll_id, function(data){
-			$scope.poll = data;
-		});
-	}
-]);
+dynamicPollControllers.controller('createdPollController', ["$scope", "$routeParams", "$interval", "pollService",
+	function ($scope, $routeParams, $interval, pollService) {
+		$interval(function(){
+			pollService.viewPoll($routeParams.poll_id, function(data){
+				$scope.poll = data;
+			});
+	}, 1000);
+}]);
 //vote on poll controller. Handles displaying the poll options, copying the link to share, and the posting of the vote cast
 dynamicPollControllers.controller('voteonPollController', ["$scope", "$location", "$routeParams", "pollService",
 	function ($scope, $location, $routeParams, pollService) {
