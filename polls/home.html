@@ -1,0 +1,17 @@
+<div class="jumbotron">
+	<h1>Dynamic Poll</h1>
+	<p>Another small project I've completed in AngularJS. This polling system allows you to create a poll, share a link, vote on it and see the results.</p>
+	<p>Some of the details are:</p>
+	<ul>
+		<li>Create a poll which stores the poll name and options in a mysql databse</li>
+		<li>Once the poll is created you can copy your link to share it with others</li>
+		<li>Uses php sessions so you may only vote once</li>
+		<li>Uses angular's interval to fetch the db results every two seconds so you can see poll results in near real-time</li>
+	</ul>
+	<p>Future goals:</p>
+	<ul>
+		<li>Implement with firebase for real-time poll tracking, a lot cleaner than querying the databse every two seconds</li>
+		<li>Restucture data so I can sort the poll's columns, and put the most voted item on the top of the list</li>
+	</ul>
+	<p><a class="btn btn-lg btn-primary" href="#/create" role="button">Create your first Poll!</a></p>
+</div>

@@ -9,7 +9,10 @@ var dynamicPollApp = angular.module('dynamicPollApp', [
 dynamicPollApp.config(['$routeProvider',
 		function($routeProvider){
 			$routeProvider.
-				when('/', {
+				when('/home', {
+					templateUrl: 'polls/home.html'
+				}).
+				when('/create/', {
 					templateUrl: 'polls/createPoll.html',
 					controllers: 'createPollController'
 				}).
@@ -20,6 +23,10 @@ dynamicPollApp.config(['$routeProvider',
 				when('/vote/:poll_id', {
 					templateUrl: 'polls/voteonPoll.html',
 					controllers: 'voteonPollController'
+				}).
+				otherwise({
+					redirectTo: '/home'
 				});
 		}
 	]);
+

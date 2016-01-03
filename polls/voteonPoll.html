@@ -1,43 +1,27 @@
 <div class="row" ng-controller="voteonPollController">
-	<div class="col-md-8 col-md-offset-2">
-		<div class="page-header">
-			<h1>{{ poll.pollname }}</h1>
-			<p>Copy the following link to share your poll and have others vote:<p>
-				<!--  Creating a new clipboard so the button functions and copies the link-->
-				<script>
-					new Clipboard('#clipboard');
-				</script>
-			<p>
-				<strong>http://localhost:8888/Git/dynamic-poll/#/vote/{{ poll.poll_id }}</strong>
-				<button id="clipboard" class="btn btn-default" data-clipboard-text="http://localhost:8888/Git/dynamic-poll/#/vote/{{ poll.poll_id }}" ng-class="{'btn-success': active == 'copied'}" ng-click="activateButton('copied')"
->Copy</button></p>
-				<!-- End of the copy link button code -->
+	<div class="col-md-6 col-md-offset-3">
+		<h1>{{ poll.pollname }}</h1>
+		<p>Copy the following link to share your poll and have others vote:<p>
+		<!--  Creating a new clipboard so the button functions and copies the link-->
+		<script>
+			new Clipboard('#clipboard');
+		</script>
+		<p>
+		<strong>http://localhost:8888/Git/dynamic-poll/#/vote/{{ poll.poll_id }}</strong>
+		<button id="clipboard" class="btn btn-default" data-clipboard-text="http://localhost:8888/Git/dynamic-poll/#/vote/{{ poll.poll_id }}" ng-class="{'btn-success': active == 'copied'}" ng-click="activateButton('copied')"
+		>Copy</button></p>
+		<!-- End of the copy link button code -->
+		<div class="panel panel-primary">
+			<div class="panel-heading">Poll Options</div>
+			<ul class="list-group">
+				<li class="list-group-item"><button style="float: right;" class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option1votes');">Vote!</button>{{ poll.option1 }}</li>
+				<li class="list-group-item"><button style="float: right;" class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option2votes');">Vote!</button>{{ poll.option2 }}</li>
+				<li class="list-group-item"><button style="float: right;" class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option3votes');">Vote!</button>{{ poll.option3 }}</li>
+				<li class="list-group-item"><button style="float: right;" class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option4votes');">Vote!</button>{{ poll.option4 }}</li>
+				<li class="list-group-item"><button style="float: right;" class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option5votes');">Vote!</button>{{ poll.option5 }}</li>
+			</ul>
 		</div>
-				<table class="table">
-					<tr class="info">
-					<th>Poll Option</th>
-					<th></th>
-					</tr>
-					<tr>
-					<td>{{ poll.option1 }}</td>
-					<td><button class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option1votes');">Vote!</button></td>
-					</tr>
-					<tr>
-					<td>{{ poll.option2 }}</td>
-					<td><button class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option2votes');" >Vote!</button></td>
-					</tr>
-					<tr>
-					<td>{{ poll.option3 }}</td>
-					<td><button class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option3votes');">Vote!</button></td>
-					</tr>
-					<tr>
-					<td>{{ poll.option4 }}</td>
-					<td><button class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option4votes');">Vote!</button></td>
-					</tr>
-					<tr>
-					<td>{{ poll.option5 }}</td>
-					<td><button class="btn btn-primary" ng-click="voteonPoll(poll.poll_id, 'option5votes');">Vote!</button></td>
-					</tr>
-				</table>
 	</div>
 </div>
+
+

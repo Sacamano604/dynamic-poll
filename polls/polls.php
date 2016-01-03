@@ -35,7 +35,6 @@
 			//This is necessary for peopel sharing their poll so that new visitors get the session variable when arriving 
 			if($_SESSION["voteCast"] == ""){
 				$_SESSION["voteCast"] = "no";
-
 			}
 			//If they haven't voted yet, go ahead and let them vote
 			if ($_SESSION["voteCast"] == "no") {

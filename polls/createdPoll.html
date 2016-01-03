@@ -1,35 +1,17 @@
 <div class="row" ng-controller="createdPollController">
-	<div class="col-md-8 col-md-offset-2">
-		<div class="page-header">
-			<h3>Results for: </h3>
-			<h2>{{ poll.pollname }}</h2>
+	<div class="col-md-6 col-md-offset-3">
+		<h3>Results for: </h3>
+		<h2>{{ poll.pollname }}</h2>
+		<div class="panel panel-primary">
+			<div class="panel-heading">Poll Results</div>
+			<ul class="list-group">
+				<li class="list-group-item"><span class="badge">{{ poll.option1votes }}</span>{{ poll.option1 }}</li>
+				<li class="list-group-item"><span class="badge">{{ poll.option2votes }}</span>{{ poll.option2 }}</li>
+				<li class="list-group-item"><span class="badge">{{ poll.option3votes }}</span>{{ poll.option3 }}</li>
+				<li class="list-group-item"><span class="badge">{{ poll.option4votes }}</span>{{ poll.option4 }}</li>
+				<li class="list-group-item"><span class="badge">{{ poll.option5votes }}</span>{{ poll.option5 }}</li>
+			</ul>
 		</div>
-				<table class="table">
-					<tr class="info">
-					<th>Poll Option</th>
-					<th>Votes</th>
-					</tr>
-					<tr>
-					<td>{{ poll.option1 }}</td>
-					<td>{{ poll.option1votes }}</td>
-					</tr>
-					<tr>
-					<td>{{ poll.option2 }}</td>
-					<td>{{ poll.option2votes }}</td>
-					</tr>
-					<tr>
-					<td>{{ poll.option3 }}</td>
-					<td>{{ poll.option3votes }}</td>
-					</tr>
-					<tr>
-					<td>{{ poll.option4 }}</td>
-					<td>{{ poll.option4votes }}</td>
-					</tr>
-					<tr>
-					<td>{{ poll.option5 }}</td>
-					<td>{{ poll.option5votes }}</td>
-					</tr>
-				</table>
 	</div>
 </div>
 
