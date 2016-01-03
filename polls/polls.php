@@ -4,6 +4,7 @@
 	ini_set("display_errors", 1);
 	//mySQLi string to connect to the DB
 	$mysqli = mysqli_connect('localhost', 'root', 'root', 'dynamicpoll');
+	session_start();
 	//Switch for each action
 	switch($_GET['action']){
 		//Case that handles poll creation
@@ -15,6 +16,7 @@
 			$json = array('poll_id' => $returnId);
 			echo json_encode($json);
 			$mysqli->close();
+			$_SESSION["voteCast"] = "no";
 		break;
 		//Case that handles the viewing of the polls
 		case 'viewPoll':
@@ -29,11 +31,17 @@
 		break;
 		//Case that handles poll voting
 		case 'voteonPoll':
-			$id = $_GET['poll_id'];
-			$columnName = $_GET['voteOption'];
-			$query = ("UPDATE poll SET $columnName=($columnName + 1) WHERE poll_id='$id'");
-			$result = mysqli_query($mysqli, $query);
-			$mysqli->close();
+			echo $_SESSION["voteCast"];
+			if ($_SESSION["voteCast"] == "no") {
+				$id = $_GET['poll_id'];
+				$columnName = $_GET['voteOption'];
+				$query = ("UPDATE poll SET $columnName=($columnName + 1) WHERE poll_id='$id'");
+				$result = mysqli_query($mysqli, $query);
+				$mysqli->close();				
+			} 
+			$_SESSION["voteCast"] = "yes";
 		break;
 	}
+
+
 ?>

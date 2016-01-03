@@ -27,7 +27,7 @@ dynamicPollControllers.controller('voteonPollController', ["$scope", "$location"
 		});
 		$scope.activateButton = function(name) { 
 			$scope.active = name; 
-		}
+		};
 		$scope.voteonPoll = function(id, vote){
 			pollService.voteonPoll($routeParams.poll_id, vote, function(data){
 				$location.path('/created/' + $routeParams.poll_id);
