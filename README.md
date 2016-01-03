@@ -10,4 +10,4 @@ As of January 2nd, here's what's left todo:
 - **Sorting:** Need to be able to sort the votes from top to bottom, with the most voted option being at the top.
 - **CSS Tidy up:** Need to make the page more user friendly and tidy up how it looks. 
 
-Working version as it stands: http://www.bentoussi.com/dynamic-poll/#/
+Working version as it stands: http://www.bentoussi.com/dynamic-poll/

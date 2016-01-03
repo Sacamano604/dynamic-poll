@@ -31,7 +31,13 @@
 		break;
 		//Case that handles poll voting
 		case 'voteonPoll':
-			echo $_SESSION["voteCast"];
+			//If the session variable 'voteCast' is empty, make it say 'no'
+			//This is necessary for peopel sharing their poll so that new visitors get the session variable when arriving 
+			if($_SESSION["voteCast"] == ""){
+				$_SESSION["voteCast"] = "no";
+
+			}
+			//If they haven't voted yet, go ahead and let them vote
 			if ($_SESSION["voteCast"] == "no") {
 				$id = $_GET['poll_id'];
 				$columnName = $_GET['voteOption'];
@@ -39,6 +45,7 @@
 				$result = mysqli_query($mysqli, $query);
 				$mysqli->close();				
 			} 
+			//Set the session variable to 'yes' so they cannot vote again in this session
 			$_SESSION["voteCast"] = "yes";
 		break;
 	}
